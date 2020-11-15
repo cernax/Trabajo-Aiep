@@ -10,7 +10,7 @@
                 </div>
             </li>
             <li>
-                <div style="width:400px"></div>
+                <div style="width: 400px"></div>
             </li>
             <li>
                 <div style="padding-left: 15px" class="align-middle">
@@ -40,36 +40,20 @@
         </ol>
     </nav>
     <div class="container">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+        <asp:GridView runat="server" ID="gvFacturas"
+            AutoGenerateColumns="False"
+            EmptyDataText="No data available." ShowHeader="true"
+            CssClass="table table-hover"
+            HeaderStyle-CssClass="thead-dark"
+            AllowPaging="True">            
+            <Columns>                
+                <asp:BoundField DataField="ID" HeaderText="ID" />
+                <asp:BoundField DataField="TipoFactura" HeaderText="Tipo Factura" />
+                <asp:BoundField DataField="Monto" HeaderText="Monto" />
+                <asp:BoundField DataField="Producto" HeaderText="Producto" />
+                <asp:BoundField DataField="Cliente" HeaderText="Cliente" />
+            </Columns>
+        </asp:GridView>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
