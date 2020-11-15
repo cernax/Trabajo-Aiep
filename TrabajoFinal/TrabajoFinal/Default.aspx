@@ -14,14 +14,22 @@
 
                 // The data for our dataset
                 data: {
-                    labels: ['Total', 'Usuario'],
+                    labels: ['Total'],
                     datasets: [{
                         label: 'Factuas',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: [30, 20, 70, 0]
                     }]
-                },
+                },{
+                labels: ['Usuario'],
+                datasets: [{
+                    label: 'Factuas',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [30, 20, 70, 0]
+                }]
+                }
 
                 // Configuration options go here
                 options: {}
