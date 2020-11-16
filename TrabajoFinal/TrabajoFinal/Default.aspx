@@ -28,7 +28,14 @@
             });
         });
     </script>
-    <div style="width:500px">
-        <canvas id="myChart" ></canvas>
+    <br />
+    <div>
+        <h1>
+            <asp:Label ID="lblNomUser" Text="" runat="server" />
+        </h1>
+    </div>
+    <br />
+    <div style="width: 500px">
+        <canvas id="myChart"></canvas>
     </div>
 </asp:Content>

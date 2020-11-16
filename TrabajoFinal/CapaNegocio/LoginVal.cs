@@ -10,11 +10,11 @@ namespace CapaNegocio
 {
     public class LoginVal
     {
-        public bool ConsultaUsuario(Users usuario)
+        public string ConsultaUsuario(Users usuario)
         {
             if (usuario == null)
             {
-                return false;
+                return string.Empty;
             }
             else
             {

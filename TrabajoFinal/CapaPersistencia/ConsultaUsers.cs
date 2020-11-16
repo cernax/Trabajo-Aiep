@@ -12,13 +12,13 @@ namespace CapaPersistencia
 {
     public class ConsultaUsers
     {
-        public bool ConsutaLogin(Users usuario)
+        public string ConsutaLogin(Users usuario)
         {
             ConexionBD conectaBD = new ConexionBD();
-
+            string nomUser = string.Empty;
             try
             {
-                string queryInsert = "SELECT Id_Usuario from [TALLER-NET].[dbo].[TBL_Usuario] where cNombreUsuario = '" + usuario.user + "' and cClave = '" + usuario.password + "'";
+                string queryInsert = "SELECT CONCAT(cNombres, ' ', cApellidos) from [TALLER-NET].[dbo].[TBL_Usuario] where cNombreUsuario = '" + usuario.user + "' and cClave = '" + usuario.password + "'";
 
                 conectaBD.abrirConexion();
 
@@ -27,28 +27,26 @@ namespace CapaPersistencia
                 DataTable dt = new DataTable();
                 sqlAdapter.Fill(dt);
 
-
                 conectaBD.cerrarConexion();
+
+                nomUser = dt.Rows[0].ItemArray[0].ToString();
 
                 if (dt.Rows.Count > 0)
                 {
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    return nomUser;
                 }
 
             }
             catch (Exception ex)
             {
                 string err = ex.Message;
-                return false;
+                return nomUser;
             }
             finally
             {
                 conectaBD.cerrarConexion();
             }
+            return nomUser;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace TrabajoFinal
         {
             var psw = txtpsw.Text;
             var user = txtuser.Text;
-            bool est;
+            string est;
 
             Users usr = new Users();
             usr.password = psw;
@@ -29,8 +29,8 @@ namespace TrabajoFinal
             LoginVal consUser = new LoginVal();
             est = consUser.ConsultaUsuario(usr);
 
-            if (est)
-                Response.Redirect("https://localhost:44382/");
+            if (est != string.Empty)
+                Response.Redirect("https://localhost:44382/Default?NomUser=" + est);
             else
                 Response.Redirect("https://localhost:44382/Login");
         }

@@ -12,12 +12,12 @@ namespace TrabajoFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                string parametro = Request.QueryString["NomUser"];
+                lblNomUser.Text = "Bienvenido " + parametro;
+            }
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
