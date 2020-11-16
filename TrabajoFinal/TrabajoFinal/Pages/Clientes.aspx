@@ -5,7 +5,8 @@
         <ol class="breadcrumb">
             <li>
                 <div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Nuevo</button>
+                    <asp:Button ID="btnNuevo" OnClick="btnNuevo_Click" Text="Nuevo" runat="server" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"/>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="display:none">Nuevo</button>
                 </div>
             </li>
             <li>

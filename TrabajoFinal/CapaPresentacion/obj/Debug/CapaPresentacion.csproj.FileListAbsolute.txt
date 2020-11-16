@@ -1,0 +1,9 @@
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\bin\Debug\CapaPresentacion.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\obj\Debug\CapaPresentacion.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\bin\Debug\CapaEntidades.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\bin\Debug\CapaEntidades.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete

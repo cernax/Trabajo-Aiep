@@ -1,0 +1,11 @@
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\bin\Debug\CapaPersistencia.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\bin\Debug\CapaPersistencia.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\obj\Debug\CapaPersistencia.csprojAssemblyReference.cache
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CoreCompileInputs.cache
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\obj\Debug\CapaPersistencia.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\obj\Debug\CapaPersistencia.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\bin\Debug\CapaEntidades.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\bin\Debug\CapaPresentacion.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\bin\Debug\CapaEntidades.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\bin\Debug\CapaPresentacion.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CopyComplete

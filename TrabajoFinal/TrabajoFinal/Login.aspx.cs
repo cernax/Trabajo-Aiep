@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CapaEntidades;
+using CapaNegocio;
 
 namespace TrabajoFinal
 {
@@ -12,6 +14,25 @@ namespace TrabajoFinal
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnlogin_Click(object sender, EventArgs e)
+        {
+            var psw = txtpsw.Text;
+            var user = txtuser.Text;
+            bool est;
+
+            Users usr = new Users();
+            usr.password = psw;
+            usr.user = user;
+
+            LoginVal consUser = new LoginVal();
+            est = consUser.ConsultaUsuario(usr);
+
+            if (est)
+                Response.Redirect("https://localhost:44382/");
+            else
+                Response.Redirect("https://localhost:44382/Login");
         }
     }
 }

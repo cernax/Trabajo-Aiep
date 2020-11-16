@@ -75,8 +75,6 @@ C:\Users\andym\Desktop\TrabajoInsituto\TrabajoFinal\TrabajoFinal\obj\Debug\Traba
 C:\Users\andym\Desktop\TrabajoInsituto\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.pdb
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csprojAssemblyReference.cache
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csproj.CoreCompileInputs.cache
-C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.dll
-C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.pdb
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\TrabajoFinal.dll.config
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\TrabajoFinal.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\TrabajoFinal.pdb
@@ -132,6 +130,8 @@ C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\Tra
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Antlr3.Runtime.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\AspNet.ScriptManager.bootstrap.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaEntidades.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaNegocio.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Microsoft.AspNet.FriendlyUrls.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -141,11 +141,19 @@ C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\Tra
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Newtonsoft.Json.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\System.Web.Optimization.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\WebGrease.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaPersistencia.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaPresentacion.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaEntidades.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaNegocio.pdb
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\System.Web.Optimization.xml
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Newtonsoft.Json.xml
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Antlr3.Runtime.pdb
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaPersistencia.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaPresentacion.pdb
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\es\System.Web.Optimization.resources.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csproj.CopyComplete
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.dll
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.pdb

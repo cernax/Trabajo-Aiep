@@ -13,5 +13,10 @@ namespace TrabajoFinal.Pages
         {
 
         }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
