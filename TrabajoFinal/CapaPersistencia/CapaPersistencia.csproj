@@ -41,7 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ConsultaCiudad.cs" />
+    <Compile Include="ConsultaCliente.cs" />
+    <Compile Include="ConsultaComuna.cs" />
+    <Compile Include="ConsultaCorrelativo.cs" />
+    <Compile Include="ConsultaDetDocumento.cs" />
+    <Compile Include="ConsultaDocumento.cs" />
+    <Compile Include="ConsultaEmpresa.cs" />
+    <Compile Include="ConsultaFormaPago.cs" />
+    <Compile Include="ConsultaProducto.cs" />
+    <Compile Include="ConsultaTipoDoc.cs" />
     <Compile Include="ConsultaUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

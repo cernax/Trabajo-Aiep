@@ -41,8 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="LoginVal.cs" />
+    <Compile Include="NEGCiudad.cs" />
+    <Compile Include="NEGCliente.cs" />
+    <Compile Include="NEGComuna.cs" />
+    <Compile Include="NEGCorrelativo.cs" />
+    <Compile Include="NEGDetDocumento.cs" />
+    <Compile Include="NEGDocumento.cs" />
+    <Compile Include="NEGEmpresa.cs" />
+    <Compile Include="NEGFormaPago.cs" />
+    <Compile Include="NEGProducto.cs" />
+    <Compile Include="NEGTipoDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
