@@ -10,6 +10,7 @@ namespace CapaNegocio
 {
     public class LoginVal
     {
+        ConsultaUsers ConsUsr = new ConsultaUsers();
         public string ConsultaUsuario(Users usuario)
         {
             if (usuario == null)
@@ -18,8 +19,18 @@ namespace CapaNegocio
             }
             else
             {
-                ConsultaUsers ConsUsr = new ConsultaUsers();
                 return ConsUsr.ConsutaLogin(usuario);
+            }
+        }
+        public bool registrarUsers(Users usuario)
+        {
+            if (usuario == null)
+            {
+                return false;
+            }
+            else
+            {
+                return ConsUsr.registraUsuario(usuario);
             }
         }
     }
