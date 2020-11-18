@@ -20,7 +20,7 @@ namespace CapaEntidades
         public string cDireccion { get; set; }
         public string cTelefono { get; set; }
         public string vCorreo { get; set; }
-        public DateTime? dFechaNacimiento { get; set; }
+        public string dFechaNacimiento { get; set; }
         public int bVigencia { get; set; }
         public DateTime? dFechaCreacion { get; set; }
         public DateTime? dFechaModificacion { get; set; }
@@ -39,7 +39,7 @@ namespace CapaEntidades
             cDireccion = string.Empty;
             cTelefono = string.Empty;
             vCorreo = string.Empty;
-            dFechaNacimiento = null;
+            dFechaNacimiento = string.Empty;
             bVigencia = 0;
             dFechaCreacion = null;
             dFechaModificacion = null;

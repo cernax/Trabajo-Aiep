@@ -71,7 +71,7 @@ namespace CapaPersistencia
                         agregar.cDireccion = dt.Rows[i][9].ToString();
                         agregar.cTelefono = dt.Rows[i][10].ToString();
                         agregar.vCorreo = dt.Rows[i][11].ToString();
-                        agregar.dFechaNacimiento = Convert.ToDateTime(dt.Rows[i][12].ToString());
+                        agregar.dFechaNacimiento = dt.Rows[i][12].ToString();
                         agregar.bVigencia = (dt.Rows[i][13].ToString() == "True" ? 1 : 0 );
 
                         lista.Add(agregar);
@@ -145,7 +145,7 @@ namespace CapaPersistencia
                         agregar.cDireccion = dt.Rows[i][7].ToString();
                         agregar.cTelefono = dt.Rows[i][8].ToString();
                         agregar.vCorreo = dt.Rows[i][9].ToString();
-                        agregar.dFechaNacimiento = Convert.ToDateTime(dt.Rows[i][10].ToString());
+                        agregar.dFechaNacimiento = dt.Rows[i][10].ToString();
                         agregar.bVigencia = int.Parse(dt.Rows[i][11].ToString());
                         agregar.dFechaCreacion = Convert.ToDateTime(dt.Rows[i][12].ToString());
                         agregar.dFechaModificacion = Convert.ToDateTime(dt.Rows[i][13].ToString());

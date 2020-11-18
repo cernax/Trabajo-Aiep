@@ -12,7 +12,7 @@ namespace CapaNegocio
     {
         ConsultaEmpresa ConsEmp = new ConsultaEmpresa();
 
-        public List<Empresa> ConsultaProducto(Empresa empresa)
+        public List<Empresa> ConsultaEmpresa(Empresa empresa)
         {
             if (empresa == null)
             {
@@ -23,7 +23,7 @@ namespace CapaNegocio
                 return ConsEmp.ConsutaEmpresa(empresa);
             }
         }
-        public List<Empresa> BuscarProducto(Empresa empresa)
+        public List<Empresa> BuscarEmpresa(Empresa empresa)
         {
             if (empresa == null)
             {
@@ -34,7 +34,7 @@ namespace CapaNegocio
                 return ConsEmp.BuscarEmpresa(empresa);
             }
         }
-        public bool registrarProducto(Empresa empresa)
+        public bool registrarEmpresa(Empresa empresa)
         {
             if (empresa == null)
             {
@@ -45,7 +45,7 @@ namespace CapaNegocio
                 return ConsEmp.registraEmpresa(empresa);
             }
         }
-        public bool modificarProducto(Empresa empresa)
+        public bool modificarEmpresa(Empresa empresa)
         {
             if (empresa == null)
             {
@@ -56,7 +56,7 @@ namespace CapaNegocio
                 return ConsEmp.modificarEmpresa(empresa);
             }
         }
-        public bool eliminarProducto(Empresa empresa)
+        public bool eliminarEmpresa(Empresa empresa)
         {
             if (empresa == null)
             {

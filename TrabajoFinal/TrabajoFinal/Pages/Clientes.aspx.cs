@@ -87,7 +87,7 @@ namespace TrabajoFinal.Pages
         protected void gvCliente_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvCliente.EditIndex = e.NewEditIndex;
-            //gvCliente.DataBinding();
+            CargaCiudad();
         }
 
         protected void btnGrabar_Click(object sender, EventArgs e)
@@ -105,10 +105,18 @@ namespace TrabajoFinal.Pages
             cliente.Id_Comuna = int.Parse(ListaComuna.SelectedValue.ToString());
             cliente.cDireccion = txtDireccion.Text.ToString();
             cliente.cTelefono = txtTelefono.Text.ToString();
-            cliente.vCorreo = txtCorreo.Text.ToString();
-            cliente.dFechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text.ToString() + "00:00:00.000");
+            cliente.vCorreo = txtCorreo.Text.ToString(); 
+            string fecnac = string.Format("{0:yyyy-MM-dd}", txtFechaNacimiento.Text);
+            cliente.dFechaNacimiento = fecnac.Replace("/", "-") + " 00:00:00.000";
             if (conCli.registrarCliente(cliente))
+            {
                 CargaGrilla();
+                Response.Write("<script>alert('Registro Correcto!');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Registro Incorrecto!');</script>");
+            }
         }
 
         protected void ListaCiudad_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,5 +124,22 @@ namespace TrabajoFinal.Pages
             CargaComuna(int.Parse(ListaCiudad.SelectedIndex.ToString()));
         }
 
+
+        protected void ActRow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CancRow_Click(object sender, EventArgs e)
+        {
+            gvCliente.EditIndex = -1;
+            CargaCiudad();
+        }
+
+        protected void gvCliente_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCliente.PageIndex = e.NewPageIndex;
+            CargaCiudad();
+        }
     }
 }

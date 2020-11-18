@@ -50,10 +50,11 @@
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True"
             OnRowEditing="gvCliente_RowEditing"
+            OnPageIndexChanging="gvCliente_PageIndexChanging"
             AutoGenerateColumns="false">
             <Columns>
-                <asp:BoundField DataField="iRut" HeaderText="Rut"  DataFormatString = "{0:N0}" />
-                <asp:BoundField DataField="cDv" HeaderText="Dgto" />
+                <asp:BoundField DataField="iRut" HeaderText="Rut" DataFormatString="{0:N0}" ReadOnly="true" />
+                <asp:BoundField DataField="cDv" HeaderText="Dgto"  ReadOnly="true"/>
                 <asp:BoundField DataField="cNombres" HeaderText="Nombres Cliente" />
                 <asp:BoundField DataField="cApellidos" HeaderText="Apellidos Cliente" />
                 <asp:BoundField DataField="cCiudad" HeaderText="Nombre Ciudad" />
@@ -61,7 +62,16 @@
                 <asp:BoundField DataField="cDireccion" HeaderText="Dirección" />
                 <asp:BoundField DataField="cTelefono" HeaderText="Teléfono" />
                 <asp:BoundField DataField="vCorreo" HeaderText="Correo" />
-                <asp:BoundField DataField="dFechaNacimiento" HeaderText="Fecha Nacimiento" DataFormatString = "{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="dFechaNacimiento" HeaderText="Fecha Nacimiento" DataFormatString="{0:dd/MM/yyyy}"  ReadOnly="true"/>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton Text="Editar" runat="server" CommandName="Edit" CommandArgument="1"></asp:LinkButton>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:LinkButton Text="Update" ID="ActRow" runat="server" OnClick="ActRow_Click" />
+                        <asp:LinkButton Text="Cancel" ID="CancRow" runat="server" OnClick="CancRow_Click" />
+                    </EditItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </div>
@@ -91,7 +101,7 @@
                         </div>
                         <div class="col-lg-12">
                             <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:"></asp:Label><br />
-                            <asp:DropDownList ID="ListaCiudad" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ListaCiudad_SelectedIndexChanged" ></asp:DropDownList>
+                            <asp:DropDownList ID="ListaCiudad" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ListaCiudad_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="col-lg-12">
                             <asp:Label ID="lblComuna" runat="server" Text="Comua:"></asp:Label><br />

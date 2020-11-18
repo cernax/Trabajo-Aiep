@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,68 @@ namespace TrabajoFinal.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                CargaGrilla();
+            }
+        }
+        private void CargaGrilla()
+        {
+            NEGEmpresa conEmp = new NEGEmpresa();
+            Empresa empresa = new Empresa();
 
+            gvEmpresa.DataSource = conEmp.ConsultaEmpresa(empresa);
+            gvEmpresa.DataBind();
+        }
+
+        public static string Digito(int rut)
+        {
+            int suma = 0;
+            int multiplicador = 1;
+            while (rut != 0)
+            {
+                multiplicador++;
+                if (multiplicador == 8)
+                    multiplicador = 2;
+                suma += (rut % 10) * multiplicador;
+                rut = rut / 10;
+            }
+            suma = 11 - (suma % 11);
+            if (suma == 11)
+            {
+                return "0";
+            }
+            else if (suma == 10)
+            {
+                return "K";
+            }
+            else
+            {
+                return suma.ToString();
+            }
+        }
+
+        protected void btnGrabar_Click(object sender, EventArgs e)
+        {
+            NEGEmpresa conEmp = new NEGEmpresa();
+            Empresa empresa = new Empresa();
+
+            empresa.iRut = int.Parse(txtRut.Text.ToString());
+            empresa.cDv = Digito(int.Parse(txtRut.Text));
+            empresa.cNombre = txtNombre.Text.ToString();
+            empresa.cDireccion = txtDireccion.Text.ToString();
+            empresa.cTelefono = txtTelefono.Text.ToString();
+            empresa.vCorreo = txtCorreo.Text.ToString();
+
+            if (conEmp.registrarEmpresa(empresa))
+            {
+                CargaGrilla();
+                Response.Write("<script>alert('Registro Correcto!');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Registro Incorrecto!');</script>");
+            }
         }
     }
 }

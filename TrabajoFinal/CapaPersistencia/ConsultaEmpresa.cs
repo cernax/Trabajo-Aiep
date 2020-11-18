@@ -53,7 +53,7 @@ namespace CapaPersistencia
                         agregar.cDireccion = dt.Rows[i][4].ToString();
                         agregar.cTelefono = dt.Rows[i][5].ToString();
                         agregar.vCorreo = dt.Rows[i][6].ToString();
-                        agregar.bVigencia = int.Parse(dt.Rows[i][7].ToString());
+                        agregar.bVigencia = dt.Rows[i][7].ToString() == "true" ? 1 : 0;
 
                         lista.Add(agregar);
                     }
@@ -149,8 +149,8 @@ namespace CapaPersistencia
                                             empresa.cDv + "','" +
                                             empresa.cNombre + "','" +
                                             empresa.cDireccion + "'," +
-                                            empresa.cTelefono + "','" +
-                                            empresa.vCorreo + "','" +
+                                            empresa.cTelefono + ",'" +
+                                            empresa.vCorreo + "'," +
                                             empresa.bVigencia + ");";
 
                 conectaBD.abrirConexion();

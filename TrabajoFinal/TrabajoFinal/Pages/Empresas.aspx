@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Empresas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Empresas.aspx.cs" Inherits="TrabajoFinal.Pages.Empresas" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-   <br />
+    <br />
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li>
@@ -9,7 +10,7 @@
                 </div>
             </li>
             <li>
-                <div style="width:400px"></div>
+                <div style="width: 400px"></div>
             </li>
             <li>
                 <div style="padding-left: 15px" class="align-middle">
@@ -44,10 +45,14 @@
             EmptyDataText="No data available." ShowHeader="true"
             CssClass="table table-hover"
             HeaderStyle-CssClass="thead-dark"
-            AllowPaging="True">            
-            <Columns>                
-                <asp:BoundField DataField="ID" HeaderText="ID" />
-                <asp:BoundField DataField="NombreEmpresa" HeaderText="Nombre Empresa" />
+            AllowPaging="True">
+            <Columns>
+                <asp:BoundField DataField="iRut" HeaderText="Rut" />
+                <asp:BoundField DataField="cDv" HeaderText="Dgito" />
+                <asp:BoundField DataField="cNombre" HeaderText="Nombre" />
+                <asp:BoundField DataField="cDireccion" HeaderText="Dirección" />
+                <asp:BoundField DataField="cTelefono" HeaderText="Teléfono" />
+                <asp:BoundField DataField="vCorreo" HeaderText="Correo" />
             </Columns>
         </asp:GridView>
     </div>
@@ -62,21 +67,49 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="POST">                       
+                        <div class="col-lg-12">
+                            <asp:Label ID="lblRut" runat="server" Text="Ingrese Rut:"></asp:Label><br />
+                            <asp:TextBox ID="txtRut" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtRut" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="col-lg-12">
+                            <asp:Label ID="lblNombre" runat="server" Text="Ingrese Nombres:"></asp:Label><br />
+                            <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="col-lg-12">
+                            <asp:Label ID="lblDireccion" runat="server" Text="Dirección:"></asp:Label><br />
+                            <asp:TextBox ID="txtDireccion" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDireccion" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="col-lg-12">
+                            <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label><br />
+                            <asp:TextBox ID="txtTelefono" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefono" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="col-lg-12">
+                            <asp:Label ID="lBlCorreo" runat="server" Text="Correo:"></asp:Label><br />
+                            <asp:TextBox ID="txtCorreo" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCorreo" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <%--<label for="exampleInputEmail1">Email address</label>--%>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" hidden="hidden">
+                            <%-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--%>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <%--<label for="exampleInputPassword1">Password</label>--%>
+                            <input type="password" class="form-control" id="exampleInputPassword1" hidden="hidden">
                         </div>
                         <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" hidden="hidden">
+                            <%--<label class="form-check-label" for="exampleCheck1">Check me out</label>--%>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <%--<button type="submit" class="btn btn-success" runat="server" AutoPostBack="true" >Grabar</button>--%>
+                        <asp:Button ID="btnGrabar" CssClass="btn btn-success" OnClick="btnGrabar_Click" runat="server" AutoPostBack="true" Text="Grabar" />
                     </form>
                 </div>
             </div>
