@@ -13,7 +13,9 @@ namespace CapaEntidades
         public int iStock { get; set; }
         public decimal iValor { get; set; }
         public int bVigencia { get; set; }
-
+        public DateTime dFechaCreacion { get; set; }
+        public DateTime dFechaDesde { get; set; }
+        public DateTime dFechaHasta { get; set; }
         public Producto()
         {
             Id_Producto = 0;
@@ -21,6 +23,9 @@ namespace CapaEntidades
             iStock = 0;
             iValor = 0;
             bVigencia = 0;
+            dFechaCreacion = DateTime.Now;
+            dFechaDesde = DateTime.Now;
+            dFechaHasta = DateTime.Now;
         }
     }
 }

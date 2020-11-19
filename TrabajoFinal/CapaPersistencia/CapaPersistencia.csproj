@@ -52,6 +52,7 @@
     <Compile Include="ConsultaProducto.cs" />
     <Compile Include="ConsultaTipoDoc.cs" />
     <Compile Include="ConsultaUsers.cs" />
+    <Compile Include="ConsultaVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,4 +3,3 @@ C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\Cap
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.pdb
-C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.csprojAssemblyReference.cache

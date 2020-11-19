@@ -65,6 +65,7 @@ namespace TrabajoFinal.Pages
             empresa.cDireccion = txtDireccion.Text.ToString();
             empresa.cTelefono = txtTelefono.Text.ToString();
             empresa.vCorreo = txtCorreo.Text.ToString();
+            empresa.bVigencia = 1;
 
             if (conEmp.registrarEmpresa(empresa))
             {
@@ -74,6 +75,36 @@ namespace TrabajoFinal.Pages
             else
             {
                 Response.Write("<script>alert('Registro Incorrecto!');</script>");
+            }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToDateTime(txtfechadesde) > Convert.ToDateTime(txtfechahasta))
+                {
+                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                    return;
+                }
+                if (Convert.ToDateTime(txtfechahasta) > Convert.ToDateTime(txtfechadesde))
+                {
+                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                    return;
+                }
+
+                NEGEmpresa conEmp = new NEGEmpresa();
+                Empresa empresa = new Empresa();
+
+                empresa.dFechaDesde = Convert.ToDateTime(txtfechadesde.ToString());
+                empresa.dFechaHasta = Convert.ToDateTime(txtfechahasta.ToString());
+
+                gvEmpresa.DataSource = conEmp.ReporteEmpresa(empresa);
+                gvEmpresa.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error de Sistema. Comuniquese con el administrador'" + ex.Message.ToString() + "</script>");
             }
         }
     }

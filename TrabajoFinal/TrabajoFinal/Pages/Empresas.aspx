@@ -10,15 +10,12 @@
                 </div>
             </li>
             <li>
-                <div style="width: 400px"></div>
-            </li>
-            <li>
                 <div style="padding-left: 15px" class="align-middle">
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Desde</span>
                         </div>
-                        <input type="date" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input id="txtfechahasta" type="date" runat="server" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
                     </div>
                 </div>
             </li>
@@ -27,14 +24,15 @@
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Hasta</span>
-                        </div>
-                        <input type="date" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>                        
+                        <input id="txtfechadesde" type="date" runat="server" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
                     </div>
                 </div>
             </li>
             <li>
                 <div style="padding-left: 15px" class="align-middle">
-                    <button type="button" class="btn btn-primary">Buscar</button>
+                    <%--<button type="submit" onclick="" class="btn btn-primary">Buscar</button>--%>
+                    <asp:Button ID="btnBuscar" name="btnBuscar" class="btn btn-primary" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />                    
                 </div>
             </li>
         </ol>
@@ -42,7 +40,7 @@
     <div class="container">
         <asp:GridView runat="server" ID="gvEmpresa"
             AutoGenerateColumns="False"
-            EmptyDataText="No data available." ShowHeader="true"
+            EmptyDataText="Sin Información" ShowHeader="true"
             CssClass="table table-hover"
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True">
@@ -53,6 +51,7 @@
                 <asp:BoundField DataField="cDireccion" HeaderText="Dirección" />
                 <asp:BoundField DataField="cTelefono" HeaderText="Teléfono" />
                 <asp:BoundField DataField="vCorreo" HeaderText="Correo" />
+                <asp:BoundField DataField="dFechaCreacion" HeaderText="Fecha Creación" DataFormatString="{0:dd/MM/yyyy}"  ReadOnly="true"/>
             </Columns>
         </asp:GridView>
     </div>

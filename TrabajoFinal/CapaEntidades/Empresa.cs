@@ -16,7 +16,9 @@ namespace CapaEntidades
         public string cTelefono { get; set; }
         public string vCorreo { get; set; }
         public int bVigencia { get; set; }
-
+        public DateTime dFechaCreacion { get; set; }
+        public DateTime dFechaDesde { get; set; }
+        public DateTime dFechaHasta { get; set; }
         public Empresa()
         {
             iRut = 0;
@@ -26,6 +28,9 @@ namespace CapaEntidades
             cTelefono = string.Empty;
             vCorreo = string.Empty;
             bVigencia = 0;
+            dFechaCreacion = DateTime.Now;
+            dFechaDesde = DateTime.Now;
+            dFechaHasta = DateTime.Now;
         }
     }
 }

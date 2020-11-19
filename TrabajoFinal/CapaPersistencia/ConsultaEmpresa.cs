@@ -25,7 +25,7 @@ namespace CapaPersistencia
                                         "cDireccion," +
                                         "cTelefono," +
                                         "vCorreo," +
-                                        "bVigencia " +
+                                        "dFechaCreacion " +
                                         "from " +
                                         "TBL_Empresa";
 
@@ -53,7 +53,7 @@ namespace CapaPersistencia
                         agregar.cDireccion = dt.Rows[i][4].ToString();
                         agregar.cTelefono = dt.Rows[i][5].ToString();
                         agregar.vCorreo = dt.Rows[i][6].ToString();
-                        agregar.bVigencia = dt.Rows[i][7].ToString() == "true" ? 1 : 0;
+                        agregar.dFechaCreacion = Convert.ToDateTime(dt.Rows[i][7].ToString());
 
                         lista.Add(agregar);
                     }
@@ -87,7 +87,7 @@ namespace CapaPersistencia
                                         "cDireccion," +
                                         "cTelefono," +
                                         "vCorreo," +
-                                        "bVigencia " +
+                                        "dFechaCreacion " +
                                         "from " +
                                         "TBL_Empresa " +
                                         "where " +
@@ -117,7 +117,7 @@ namespace CapaPersistencia
                         agregar.cDireccion = dt.Rows[i][4].ToString();
                         agregar.cTelefono = dt.Rows[i][5].ToString();
                         agregar.vCorreo = dt.Rows[i][6].ToString();
-                        agregar.bVigencia = int.Parse(dt.Rows[i][7].ToString());
+                        agregar.dFechaCreacion = Convert.ToDateTime(dt.Rows[i][7].ToString());
 
                         lista.Add(agregar);
                     }
@@ -144,14 +144,28 @@ namespace CapaPersistencia
 
             try
             {
-                string queryInsert = "INSERT INTO TBL_Empresa VALUES (" +
+                string queryInsert = "INSERT INTO TBL_Empresa " +
+                                            "(" +
+                                            "iRut," +
+                                            "cDv," +
+                                            "cNombre," +
+                                            "cDireccion," +
+                                            "cTelefono," +
+                                            "vCorreo," +
+                                            "bVigencia," +
+                                            "dFechaCreacion " +
+                                            ") " +
+                                            "VALUES " +
+                                            "(" +
                                             empresa.iRut + ",'" +
                                             empresa.cDv + "','" +
                                             empresa.cNombre + "','" +
                                             empresa.cDireccion + "'," +
                                             empresa.cTelefono + ",'" +
                                             empresa.vCorreo + "'," +
-                                            empresa.bVigencia + ");";
+                                            empresa.bVigencia + ",'" +
+                                            Convert.ToDateTime(empresa.dFechaCreacion.ToString("yyyy-MM-dd + 00:00:00.000")) +
+                                            "');";
 
                 conectaBD.abrirConexion();
 
@@ -254,6 +268,71 @@ namespace CapaPersistencia
             {
                 string err = ex.Message;
                 return false;
+            }
+            finally
+            {
+                conectaBD.cerrarConexion();
+            }
+        }
+        public List<Empresa> ReporteEmpresa(Empresa empresa)
+        {
+            ConexionBD conectaBD = new ConexionBD();
+            try
+            {
+                string queryBuscar = "SELECT " +
+                                        "Id_Empresa," +
+                                        "iRut," +
+                                        "cDv," +
+                                        "cNombre," +
+                                        "cDireccion," +
+                                        "cTelefono," +
+                                        "vCorreo," +
+                                        "dFechaCreacion " +
+                                        "from " +
+                                        "TBL_Empresa " +
+                                        "where " +
+                                        "dFechaCreacion >='" + empresa.dFechaDesde + "'" +
+                                        "dFechaCreacion <='" + empresa.dFechaHasta + "'";
+
+                conectaBD.abrirConexion();
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(queryBuscar, conectaBD.Conexion);
+
+                DataTable dt = new DataTable();
+                sqlAdapter.Fill(dt);
+
+                conectaBD.cerrarConexion();
+
+                if (dt.Rows.Count > 0)
+                {
+                    List<Empresa> lista = new List<Empresa>();
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        Empresa agregar = new Empresa();
+
+                        agregar.Id_Empresa = int.Parse(dt.Rows[i][0].ToString());
+                        agregar.iRut = int.Parse(dt.Rows[i][1].ToString());
+                        agregar.cDv = dt.Rows[i][2].ToString();
+                        agregar.cNombre = dt.Rows[i][3].ToString();
+                        agregar.cDireccion = dt.Rows[i][4].ToString();
+                        agregar.cTelefono = dt.Rows[i][5].ToString();
+                        agregar.vCorreo = dt.Rows[i][6].ToString();
+                        agregar.dFechaCreacion = Convert.ToDateTime(dt.Rows[i][7].ToString());
+
+                        lista.Add(agregar);
+                    }
+
+                    return lista;
+                }
+                else
+                {
+                    return new List<Empresa>();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new List<Empresa>();
             }
             finally
             {

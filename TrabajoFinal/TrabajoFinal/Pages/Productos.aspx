@@ -1,15 +1,13 @@
 ﻿<%@ Page Title="Productos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="TrabajoFinal.Pages.Productos" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
    <br />
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li>
                 <div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Nuevo</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Agregar</button>
                 </div>
-            </li>
-            <li>
-                <div style="width:400px"></div>
             </li>
             <li>
                 <div style="padding-left: 15px" class="align-middle">
@@ -17,7 +15,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Desde</span>
                         </div>
-                        <input type="date" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input id="txtfechahasta" type="date" runat="server" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
                     </div>
                 </div>
             </li>
@@ -26,14 +24,15 @@
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Hasta</span>
-                        </div>
-                        <input type="date" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>                        
+                        <input id="txtfechadesde" type="date" runat="server" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
                     </div>
                 </div>
             </li>
             <li>
                 <div style="padding-left: 15px" class="align-middle">
-                    <button type="button" class="btn btn-primary">Buscar</button>
+                    <%--<button type="submit" onclick="" class="btn btn-primary">Buscar</button>--%>
+                    <asp:Button ID="btnBuscar"  class="btn btn-primary" OnClick="btnBuscar_Click" runat="server" Text="Buscar" CausesValidation="False" />                    
                 </div>
             </li>
         </ol>
@@ -41,7 +40,7 @@
     <div class="container">
         <asp:GridView runat="server" ID="gvProducto"
             AutoGenerateColumns="False"
-            EmptyDataText="No data available." ShowHeader="true"
+            EmptyDataText="Sin Información" ShowHeader="true"
             CssClass="table table-hover"
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True">            
@@ -49,6 +48,7 @@
                 <asp:BoundField DataField="cNombre" HeaderText="Nombre Producto" />
                 <asp:BoundField DataField="iStock" HeaderText="Stock" />
                 <asp:BoundField DataField="iValor" HeaderText="Valor" DataFormatString = "{0:c}" />
+                <asp:BoundField DataField="dFechaCreacion" HeaderText="Fecha Creación" DataFormatString="{0:dd/MM/yyyy}"  ReadOnly="true"/>
             </Columns>
         </asp:GridView>
     </div>
@@ -66,17 +66,17 @@
                      <form method="POST">
                         <div class="col-lg-12">
                             <asp:Label ID="lblNombre" runat="server" Text="Ingrese Nombre:"></asp:Label><br />
-                            <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre" name="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-lg-12">
                             <asp:Label ID="lblStock" runat="server" Text="Ingrese Stock:"></asp:Label><br />
-                            <asp:TextBox ID="txtStock" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                            <asp:TextBox ID="txtStock" name="txtStock" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="txtStock" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-lg-12">
                             <asp:Label ID="Label1" runat="server" Text="Ingrese Valor:"></asp:Label><br />
-                            <asp:TextBox ID="txtValor" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                            <asp:TextBox ID="txtValor" name="txtValor" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="txtValor" ErrorMessage="Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
@@ -93,9 +93,8 @@
                             <%--<label class="form-check-label" for="exampleCheck1">Check me out</label>--%>
                         </div>
 
-                        <%--<button type="submit" class="btn btn-success" onclick="btnGrabar_Click">Grabar</button>--%>
                         <asp:Button ID="btnGrabar" CssClass="btn btn-success" OnClick="btnGrabar_Click" runat="server" AutoPostBack="true" Text="Grabar" />
-                        <button type="reset" class="btn btn-primary">Limpiar</button>
+                        <asp:Button ID="btnLimpiar" CssClass="btn btn-success" OnClick="btnLimpiar_Click" runat="server"  Text="Limpiar" />
                     </form>
                 </div>
             </div>

@@ -20,10 +20,11 @@ namespace CapaEntidades
         public string cDireccion { get; set; }
         public string cTelefono { get; set; }
         public string vCorreo { get; set; }
-        public string dFechaNacimiento { get; set; }
+        public DateTime dFechaNacimiento { get; set; }
         public int bVigencia { get; set; }
-        public DateTime? dFechaCreacion { get; set; }
-        public DateTime? dFechaModificacion { get; set; }
+        public DateTime dFechaCreacion { get; set; }
+        public DateTime dFechaDesde { get; set; }
+        public DateTime dFechaHasta { get; set; }
 
         public Cliente()
         {
@@ -39,10 +40,11 @@ namespace CapaEntidades
             cDireccion = string.Empty;
             cTelefono = string.Empty;
             vCorreo = string.Empty;
-            dFechaNacimiento = string.Empty;
+            dFechaNacimiento = DateTime.Now;
             bVigencia = 0;
-            dFechaCreacion = null;
-            dFechaModificacion = null;
+            dFechaCreacion = DateTime.Now;
+            dFechaDesde = DateTime.Now;
+            dFechaHasta = DateTime.Now;
         }       
     }
 }

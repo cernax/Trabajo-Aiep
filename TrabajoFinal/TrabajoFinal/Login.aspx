@@ -14,7 +14,7 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <div class="fadeIn first">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg " id="icon" alt="User Icon" />
+                <img src="Imagen/Logo.JPG" id="icon" alt="User Icon"/>
             </div>
             <div>
                 <asp:TextBox ID="txtuser" runat="server" CssClass="fadeIn second"></asp:TextBox>

@@ -67,5 +67,16 @@ namespace CapaNegocio
                 return ConsCli.eliminarCliente(cliente);
             }
         }
+        public List<Cliente> ReporteCliente(Cliente cliente)
+        {
+            if (cliente == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ConsCli.ReporteCliente(cliente);
+            }
+        }
     }
 }

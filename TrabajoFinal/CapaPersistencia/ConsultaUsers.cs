@@ -18,7 +18,7 @@ namespace CapaPersistencia
             string nomUser = string.Empty;
             try
             {
-                string queryInsert = "SELECT CONCAT(cNombres, ' ', cApellidos) from [TALLER-NET].[dbo].[TBL_Usuario] where cNombreUsuario = '" + usuario.user + "' and cClave = '" + usuario.password + "'";
+                string queryInsert = "SELECT cNombres + ' ' + cApellidos from TBL_Usuario where cNombreUsuario = '" + usuario.user + "' and cClave = '" + usuario.password + "'";
 
                 conectaBD.abrirConexion();
 

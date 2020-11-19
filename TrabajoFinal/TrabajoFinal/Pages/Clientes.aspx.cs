@@ -107,7 +107,9 @@ namespace TrabajoFinal.Pages
             cliente.cTelefono = txtTelefono.Text.ToString();
             cliente.vCorreo = txtCorreo.Text.ToString(); 
             string fecnac = string.Format("{0:yyyy-MM-dd}", txtFechaNacimiento.Text);
-            cliente.dFechaNacimiento = fecnac.Replace("/", "-") + " 00:00:00.000";
+            cliente.dFechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+            cliente.bVigencia = 1;
+
             if (conCli.registrarCliente(cliente))
             {
                 CargaGrilla();
@@ -124,12 +126,6 @@ namespace TrabajoFinal.Pages
             CargaComuna(int.Parse(ListaCiudad.SelectedIndex.ToString()));
         }
 
-
-        protected void ActRow_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void CancRow_Click(object sender, EventArgs e)
         {
             gvCliente.EditIndex = -1;
@@ -140,6 +136,36 @@ namespace TrabajoFinal.Pages
         {
             gvCliente.PageIndex = e.NewPageIndex;
             CargaCiudad();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToDateTime(txtfechadesde) > Convert.ToDateTime(txtfechahasta))
+                {
+                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                    return;
+                }
+                if (Convert.ToDateTime(txtfechahasta) > Convert.ToDateTime(txtfechadesde))
+                {
+                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                    return;
+                }
+
+                NEGCliente conCli = new NEGCliente();
+                Cliente cliente = new Cliente();
+
+                cliente.dFechaDesde = Convert.ToDateTime(txtfechadesde.ToString());
+                cliente.dFechaHasta = Convert.ToDateTime(txtfechahasta.ToString());
+
+                gvCliente.DataSource = conCli.ReporteCliente(cliente);
+                gvCliente.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error de Sistema. Comuniquese con el administrador'" + ex.Message.ToString() + "</script>");
+            }
         }
     }
 }

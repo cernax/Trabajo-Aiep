@@ -67,5 +67,16 @@ namespace CapaNegocio
                 return ConsEmp.eliminarEmpresa(empresa);
             }
         }
+        public List<Empresa> ReporteEmpresa(Empresa empresa)
+        {
+            if (empresa == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ConsEmp.ReporteEmpresa(empresa);
+            }
+        }
     }
 }

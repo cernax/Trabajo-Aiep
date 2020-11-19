@@ -67,5 +67,17 @@ namespace CapaNegocio
                 return ConsPro.eliminarProducto(producto);
             }
         }
+
+        public List<Producto> ReporteProducto(Producto producto)
+        {
+            if (producto == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ConsPro.ReporteProducto(producto);
+            }
+        }
     }
 }
