@@ -34,11 +34,11 @@ namespace TrabajoFinal.Pages
         {
             try
             {
-                if (Convert.ToDateTime(txtfechadesde.Value) > Convert.ToDateTime(txtfechahasta.Value))
-                {
-                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
-                    return;
-                }
+                //if (Convert.ToDateTime(txtfechadesde.Value) > Convert.ToDateTime(txtfechahasta.Value))
+                //{
+                //    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                //    return;
+                //}
                 if (Convert.ToDateTime(txtfechahasta.Value) > Convert.ToDateTime(txtfechadesde.Value))
                 {
                     Response.Write("<script>alert('Fechas Invalidas!');</script>");

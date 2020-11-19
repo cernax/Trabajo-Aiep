@@ -12,31 +12,6 @@
             <li>
                 <div style="width: 400px"></div>
             </li>
-            <li>
-                <div style="padding-left: 15px" class="align-middle">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Desde</span>
-                        </div>
-                        <input type="date" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div style="padding-left: 15px" class="align-middle">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Hasta</span>
-                        </div>
-                        <input type="date" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div style="padding-left: 15px" class="align-middle">
-                    <button type="button" class="btn btn-primary">Buscar</button>
-                </div>
-            </li>
         </ol>
     </nav>
     <div class="container">
