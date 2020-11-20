@@ -61,7 +61,7 @@ namespace CapaPersistencia
                         agregar.nomemp = dt.Rows[i][4].ToString();
                         agregar.nomcli = dt.Rows[i][5].ToString();
                         agregar.formpago = dt.Rows[i][6].ToString();
-                        agregar.iTotalNeto = int.Parse(dt.Rows[i][7].ToString());
+                        agregar.iTotalNeto = int.Parse(dt.Rows[i][7].ToString().Split(',')[0]);
                         agregar.dTotalPorcentaje = int.Parse(dt.Rows[i][8].ToString().Split(',')[0]);
                         agregar.iTotalIva = int.Parse(dt.Rows[i][9].ToString().Split(',')[0]);
                         agregar.iTotalDescuento = int.Parse(dt.Rows[i][10].ToString().Split(',')[0]);

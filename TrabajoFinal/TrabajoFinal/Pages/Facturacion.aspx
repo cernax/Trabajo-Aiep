@@ -20,8 +20,8 @@
             EmptyDataText="No data available." ShowHeader="true"
             CssClass="table table-hover"
             HeaderStyle-CssClass="thead-dark"
-            AllowPaging="True">            
-            <Columns>                
+            AllowPaging="True">
+            <Columns>
                 <asp:BoundField DataField="Id_Documento" HeaderText="ID" />
                 <asp:BoundField DataField="tipdoc" HeaderText="Tipo Factura" />
                 <asp:BoundField DataField="dFechaDocumento" HeaderText="Producto" />
@@ -48,22 +48,59 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tipo Documento</label>
+                                    <asp:DropDownList ID="ddlTipoDoc" class="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Fecha Documento</label>
+                                    <input type="date" class="form-control" id="fecdoc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Fecha Vigencia</label>
+                                    <input type="date" class="form-control" id="fecvig">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nombre Empresa</label>
+                                    <asp:DropDownList ID="ddlNomEmp" class="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nombre Cliente</label>
+                                    <asp:DropDownList ID="ddlNomCli" class="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Forma de Pago</label>
+                                    <asp:DropDownList ID="ddlFormPago" class="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total Neto</label>
+                                    <input type="text" class="form-control" id="txtTotalNeto">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total Porcentaje</label>
+                                    <input type="text" class="form-control" id="txtTotalPorcentaje">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total Iva</label>
+                                    <input type="text" class="form-control" id="txtTotalIva">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total Descuento</label>
+                                    <input type="text" class="form-control" id="txtTotalDescuento">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total General</label>
+                                    <input type="text" class="form-control" id="txtTotalGeneral">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    </div>
+                            <asp:Button Text="Guardar" runat="server" CssClass="btn btn-primary" />
                 </div>
             </div>
         </div>
