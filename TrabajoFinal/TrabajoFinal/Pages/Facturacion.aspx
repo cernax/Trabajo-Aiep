@@ -22,11 +22,18 @@
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True">            
             <Columns>                
-                <asp:BoundField DataField="ID" HeaderText="ID" />
-                <asp:BoundField DataField="TipoFactura" HeaderText="Tipo Factura" />
-                <asp:BoundField DataField="Monto" HeaderText="Monto" />
-                <asp:BoundField DataField="Producto" HeaderText="Producto" />
-                <asp:BoundField DataField="Cliente" HeaderText="Cliente" />
+                <asp:BoundField DataField="Id_Documento" HeaderText="ID" />
+                <asp:BoundField DataField="tipdoc" HeaderText="Tipo Factura" />
+                <asp:BoundField DataField="dFechaDocumento" HeaderText="Producto" />
+                <asp:BoundField DataField="dFechaVigencia" HeaderText="Cliente" />
+                <asp:BoundField DataField="nomemp" HeaderText="Cliente" />
+                <asp:BoundField DataField="nomcli" HeaderText="Cliente" />
+                <asp:BoundField DataField="formpago" HeaderText="Cliente" />
+                <asp:BoundField DataField="iTotalNeto" HeaderText="Cliente" />
+                <asp:BoundField DataField="dTotalPorcentaje" HeaderText="Cliente" />
+                <asp:BoundField DataField="iTotalIva" HeaderText="Cliente" />
+                <asp:BoundField DataField="iTotalDescuento" HeaderText="Cliente" />
+                <asp:BoundField DataField="iTotalGeneral" HeaderText="Cliente" />
             </Columns>
         </asp:GridView>
     </div>

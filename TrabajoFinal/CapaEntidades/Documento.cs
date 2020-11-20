@@ -23,6 +23,10 @@ namespace CapaEntidades
         public decimal iTotalGeneral { get; set; }
         public int bEmitido { get; set; }
         public int bVigencia { get; set; }
+        public string tipdoc { get; set; }
+        public string nomemp { get; set; }
+        public string nomcli { get; set; }
+        public string formpago { get; set; }
 
         public Documento()
         {
@@ -40,6 +44,10 @@ namespace CapaEntidades
             iTotalGeneral = 0;
             bEmitido = 0;
             bVigencia = 0;
+            tipdoc = string.Empty;
+            nomemp = string.Empty;
+            nomcli = string.Empty;
+            formpago = string.Empty;
         }
     }
 }
