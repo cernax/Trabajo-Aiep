@@ -51,8 +51,8 @@
     <Compile Include="NEGEmpresa.cs" />
     <Compile Include="NEGFormaPago.cs" />
     <Compile Include="NEGProducto.cs" />
+    <Compile Include="NEGReporte.cs" />
     <Compile Include="NEGTipoDoc.cs" />
-    <Compile Include="NEGVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

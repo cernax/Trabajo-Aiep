@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace TrabajoFinal.Pages
 {
-    public partial class ConsultaVenta : System.Web.UI.Page
+    public partial class ConsultaFactura : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,24 +24,33 @@ namespace TrabajoFinal.Pages
             NEGReporte conVenta = new NEGReporte();
             Reportes venta = new Reportes();
 
-            gvConsultaVenta.DataSource = conVenta.ReporteVenta(venta);
-            gvConsultaVenta.DataBind();
+            gvConsultaFactura.DataSource = conVenta.ReporteVenta(venta);
+            gvConsultaFactura.DataBind();
         }
-        
+
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
+                if (Convert.ToDateTime(txtfechadesde.Value) > Convert.ToDateTime(txtfechahasta.Value))
+                {
+                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                    return;
+                }
+                if (Convert.ToDateTime(txtfechahasta.Value) < Convert.ToDateTime(txtfechadesde.Value))
+                {
+                    Response.Write("<script>alert('Fechas Invalidas!');</script>");
+                    return;
+                }
+
                 NEGReporte conVenta = new NEGReporte();
                 Reportes venta = new Reportes();
 
                 venta.dFechaDesde = Convert.ToDateTime(txtfechadesde.Value.ToString());
+                venta.dFechaHasta = Convert.ToDateTime(txtfechahasta.Value.ToString());
 
-                var mes = venta.dFechaDesde.Month;
-                var ano = venta.dFechaDesde.Year;
-
-                gvConsultaVenta.DataSource = conVenta.ReporteVenta(venta);
-                gvConsultaVenta.DataBind();
+                gvConsultaFactura.DataSource = conVenta.ReporteVenta(venta);
+                gvConsultaFactura.DataBind();
             }
             catch (Exception ex)
             {

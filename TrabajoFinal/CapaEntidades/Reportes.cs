@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    public class Venta
+    public class Reportes
     {
 		public int Id_Documento { get; set; }		
 		public int Id_TipoDoc { get; set; }
@@ -30,8 +30,10 @@ namespace CapaEntidades
 		public string bVigencia { get; set; }
 		public DateTime dFechaDesde { get; set; }
 		public DateTime dFechaHasta { get; set; }
+		public int iMes { get; set; }
+		public int Ano { get; set; }
 
-		public Venta()
+		public Reportes()
 		{
 			Id_Documento = 0;
 			Id_TipoDoc = 0;
@@ -55,6 +57,8 @@ namespace CapaEntidades
 			bVigencia = string.Empty;
 			dFechaDesde = DateTime.Now;
 			dFechaHasta = DateTime.Now;
+			iMes = 0;
+			Ano = 0;
 		}		
 
 	}

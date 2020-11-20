@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ConsultaVenta" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaVenta.aspx.cs" Inherits="TrabajoFinal.Pages.ConsultaVenta" %>
+﻿<%@ Page Title="ConsultaFactura" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaFactura.aspx.cs" Inherits="TrabajoFinal.Pages.ConsultaFactura" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
@@ -16,13 +16,23 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">Mes Desde</span>
                             </div>
-                            <input type="month" id="txtfechadesde" runat="server" step="1" min="2010-12" max="2099-12" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
-                         </div>
+                            <input id="txtfechadesde" type="date" runat="server" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                        </div>
                     </div>
                 </li>
                 <li>
                     <div style="padding-left: 15px" class="align-middle">
-                        <asp:Button ID="btnBuscar" name="btnBuscar" class="btn btn-primary" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />                    
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Mes Hasta</span>
+                            </div>                        
+                            <input id="txtfechahasta" type="date" runat="server" class="form-control align-middle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="padding-left: 15px" class="align-middle">
+                          <asp:Button ID="btnBuscar" name="btnBuscar" class="btn btn-primary" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />                    
                     </div>
                 </li>
             </ol>
@@ -31,7 +41,7 @@
     <div class="container">
         <asp:GridView
             runat="server"
-            ID="gvConsultaVenta"
+            ID="gvConsultaFactura"
             EmptyDataText="Sin Información"
             CssClass="table table-hover"
             HeaderStyle-CssClass="thead-dark"
@@ -46,14 +56,13 @@
                 <asp:BoundField DataField="cNombreCliente" HeaderText="Nombre Comuna" />
                 <asp:BoundField DataField="cDireccion" HeaderText="Dirección" />
                 <asp:BoundField DataField="cNombreFP" HeaderText="Forma de Pago" />
-                <asp:BoundField DataField="iTotalNeto" HeaderText="Total Neto" />
+                <asp:BoundField DataField="iTotalNeto" HeaderText="Total Neto" DataFormatString = "{0:c}"/>
                 <asp:BoundField DataField="dTotalPorcentaje" HeaderText="% Descuento" />
-                <asp:BoundField DataField="iTotalDescuento" HeaderText="Total Descuento" />
-                <asp:BoundField DataField="iTotalIva" HeaderText="Total Iva" />                
-                <asp:BoundField DataField="iTotalGeneral" HeaderText="Total General" />
+                <asp:BoundField DataField="iTotalDescuento" HeaderText="Total Descuento" DataFormatString = "{0:c}"/>
+                <asp:BoundField DataField="iTotalIva" HeaderText="Total Iva" DataFormatString = "{0:c}"/>                
+                <asp:BoundField DataField="iTotalGeneral" HeaderText="Total General" DataFormatString = "{0:c}"/>
                 <asp:BoundField DataField="bEmitido" HeaderText="Emitida" />
                 <asp:BoundField DataField="bVigencia" HeaderText="Vigente" />
-
             </Columns>
         </asp:GridView>
     </div>
