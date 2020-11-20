@@ -57,11 +57,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Fecha Documento</label>
-                                    <input type="date" class="form-control" id="fecdoc">
+                                    <input type="date" class="form-control" id="fecdoc" runat="server">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Fecha Vigencia</label>
-                                    <input type="date" class="form-control" id="fecvig">
+                                    <input type="date" class="form-control" id="fecvig" runat="server">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nombre Empresa</label>
@@ -79,28 +79,28 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Total Neto</label>
-                                    <input type="text" class="form-control" id="txtTotalNeto">
+                                    <input type="text" runat="server" class="form-control" id="txtTotalNeto">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Total Porcentaje</label>
-                                    <input type="text" class="form-control" id="txtTotalPorcentaje">
+                                    <input type="text" runat="server" class="form-control" id="txtTotalPorcentaje">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Total Iva</label>
-                                    <input type="text" class="form-control" id="txtTotalIva">
+                                    <input type="text" runat="server" class="form-control" id="txtTotalIva">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Total Descuento</label>
-                                    <input type="text" class="form-control" id="txtTotalDescuento">
+                                    <input type="text" runat="server" class="form-control" id="txtTotalDescuento">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Total General</label>
-                                    <input type="text" class="form-control" id="txtTotalGeneral">
+                                    <input type="text" runat="server" class="form-control" id="txtTotalGeneral">
                                 </div>
                             </div>
                         </div>
                     </div>
-                            <asp:Button Text="Guardar" runat="server" CssClass="btn btn-primary" />
+                    <asp:Button Text="Guardar" runat="server" CssClass="btn btn-primary" ID="btnguardar" OnClick="btnguardar_Click" />
                 </div>
             </div>
         </div>

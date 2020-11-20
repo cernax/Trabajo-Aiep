@@ -82,5 +82,46 @@ namespace TrabajoFinal.Pages
             ddlTipoDoc.DataBind();
             ddlTipoDoc.Items.Insert(0, "- Seleccione -");
         }
+
+        protected void btnguardar_Click(object sender, EventArgs e)
+        {
+            int nomemp = int.Parse(ddlNomEmp.SelectedValue);
+            int nomcli = int.Parse(ddlNomCli.SelectedValue);
+            int forpago = int.Parse(ddlFormPago.SelectedValue);
+            int tipdoc = int.Parse(ddlTipoDoc.SelectedValue);
+            int totalneto = int.Parse(txtTotalNeto.Value);
+            int totalporcentaje = int.Parse(txtTotalPorcentaje.Value);
+            int totaliva = int.Parse(txtTotalIva.Value);
+            int totaldescuento = int.Parse(txtTotalDescuento.Value);
+            int totalgeneral = int.Parse(txtTotalGeneral.Value);
+
+            NEGDocumento doc = new NEGDocumento();
+            Documento docval = new Documento();
+
+            docval.Id_Empresa = int.Parse(ddlNomEmp.SelectedValue);
+            docval.Id_Cliente = int.Parse(ddlNomCli.SelectedValue);
+            docval.Id_FormaPago = int.Parse(ddlFormPago.SelectedValue);
+            docval.Id_TipoDoc = int.Parse(ddlTipoDoc.SelectedValue);
+            docval.iTotalNeto = int.Parse(txtTotalNeto.Value);
+            docval.dTotalPorcentaje = int.Parse(txtTotalPorcentaje.Value);
+            docval.iTotalIva = int.Parse(txtTotalIva.Value);
+            docval.iTotalDescuento = int.Parse(txtTotalDescuento.Value);
+            docval.iTotalGeneral = int.Parse(txtTotalGeneral.Value);
+            string fecdocs = string.Format("{0:yyyy-MM-dd}", fecdoc.Value);
+            string fecvigs = string.Format("{0:yyyy-MM-dd}", fecvig.Value);
+            docval.dFechaDocumento = fecdocs;
+            docval.dFechaVigencia = fecvigs; 
+
+
+            if (doc.registrarDocumento(docval))
+            {
+                CargaGrilla();
+                Response.Write("<script>alert('Registro Correcto!');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Registro Incorrecto!');</script>");
+            }
+        }
     }
 }

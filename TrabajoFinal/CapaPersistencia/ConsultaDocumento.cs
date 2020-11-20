@@ -56,8 +56,8 @@ namespace CapaPersistencia
 
                         agregar.Id_Documento = int.Parse(dt.Rows[i][0].ToString());
                         agregar.tipdoc = dt.Rows[i][1].ToString();
-                        agregar.dFechaDocumento = Convert.ToDateTime(dt.Rows[i][2].ToString());
-                        agregar.dFechaVigencia = Convert.ToDateTime(dt.Rows[i][3].ToString());
+                        agregar.dFechaDocumento = dt.Rows[i][2].ToString();
+                        agregar.dFechaVigencia = dt.Rows[i][3].ToString();
                         agregar.nomemp = dt.Rows[i][4].ToString();
                         agregar.nomcli = dt.Rows[i][5].ToString();
                         agregar.formpago = dt.Rows[i][6].ToString();
@@ -130,8 +130,8 @@ namespace CapaPersistencia
                         agregar.Id_Documento = int.Parse(dt.Rows[i][0].ToString());
                         agregar.Id_TipoDoc = int.Parse(dt.Rows[i][1].ToString());
                         agregar.Id_NCorrelativo = int.Parse(dt.Rows[i][2].ToString());
-                        agregar.dFechaDocumento = Convert.ToDateTime(dt.Rows[i][3].ToString());
-                        agregar.dFechaVigencia = Convert.ToDateTime(dt.Rows[i][4].ToString());
+                        agregar.dFechaDocumento = dt.Rows[i][3].ToString();
+                        agregar.dFechaVigencia = dt.Rows[i][4].ToString();
                         agregar.Id_Empresa = int.Parse(dt.Rows[i][5].ToString());
                         agregar.Id_Cliente = int.Parse(dt.Rows[i][6].ToString());
                         agregar.Id_FormaPago = int.Parse(dt.Rows[i][7].ToString());

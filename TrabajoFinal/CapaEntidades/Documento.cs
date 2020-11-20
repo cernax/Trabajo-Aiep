@@ -11,8 +11,8 @@ namespace CapaEntidades
         public int Id_Documento { get; set; }
         public int Id_TipoDoc { get; set; }
         public int Id_NCorrelativo { get; set; }
-        public DateTime? dFechaDocumento { get; set; }
-        public DateTime? dFechaVigencia { get; set; }
+        public string dFechaDocumento { get; set; }
+        public string dFechaVigencia { get; set; }
         public int Id_Empresa { get; set; }
         public int Id_Cliente { get; set; }
         public int Id_FormaPago { get; set; }
@@ -32,8 +32,8 @@ namespace CapaEntidades
         {
             Id_Documento = 0;
             Id_NCorrelativo = 0;
-            dFechaDocumento = null;
-            dFechaVigencia = null;
+            dFechaDocumento = string.Empty;
+            dFechaVigencia = string.Empty;
             Id_Empresa = 0;
             Id_Cliente = 0;
             Id_FormaPago = 0;
