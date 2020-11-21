@@ -49,6 +49,7 @@
     <Compile Include="ConsultaDocumento.cs" />
     <Compile Include="ConsultaEmpresa.cs" />
     <Compile Include="ConsultaFormaPago.cs" />
+    <Compile Include="ConsultaGrafico.cs" />
     <Compile Include="ConsultaProducto.cs" />
     <Compile Include="ConsultaReporte.cs" />
     <Compile Include="ConsultaTipoDoc.cs" />

@@ -21,6 +21,7 @@ namespace TrabajoFinal.Pages
                 CargaEmpresa();
                 CargaCliente();
                 CargaFormaPago();
+                CargaProducto();
             }
         }
         private void CargaGrilla()
@@ -30,6 +31,18 @@ namespace TrabajoFinal.Pages
 
             gvFacturas.DataSource = conCli.ConsultaDocumento(doc); 
             gvFacturas.DataBind();
+        }
+        private void CargaProducto()
+        {
+            NEGProducto negprod = new NEGProducto();
+            Producto prod = new Producto();
+
+            ddlproducto.Items.Clear();
+            ddlproducto.DataTextField = "cNombre";
+            ddlproducto.DataValueField = "Id_Producto";
+            ddlproducto.DataSource = negprod.ConsultaProducto(prod);
+            ddlproducto.DataBind();
+            ddlproducto.Items.Insert(0, "- Seleccione -");
         }
         private void CargaEmpresa()
         {
@@ -110,7 +123,9 @@ namespace TrabajoFinal.Pages
             string fecdocs = string.Format("{0:yyyy-MM-dd}", fecdoc.Value);
             string fecvigs = string.Format("{0:yyyy-MM-dd}", fecvig.Value);
             docval.dFechaDocumento = fecdocs;
-            docval.dFechaVigencia = fecvigs; 
+            docval.dFechaVigencia = fecvigs;
+
+            Session["cntUsuario"] = int.Parse(Session["cntUsuario"].ToString()) + 1;
 
 
             if (doc.registrarDocumento(docval))

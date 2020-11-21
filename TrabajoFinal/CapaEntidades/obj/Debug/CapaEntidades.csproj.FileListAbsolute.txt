@@ -1,5 +1,6 @@
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\bin\Debug\CapaEntidades.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\bin\Debug\CapaEntidades.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.csprojAssemblyReference.cache
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\CapaEntidades\obj\Debug\CapaEntidades.pdb

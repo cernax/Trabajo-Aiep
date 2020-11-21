@@ -73,6 +73,8 @@ C:\Users\andym\Desktop\TrabajoInsituto\TrabajoFinal\TrabajoFinal\obj\Debug\Traba
 C:\Users\andym\Desktop\TrabajoInsituto\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csproj.CopyComplete
 C:\Users\andym\Desktop\TrabajoInsituto\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.dll
 C:\Users\andym\Desktop\TrabajoInsituto\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.pdb
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csprojAssemblyReference.cache
+C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csproj.CoreCompileInputs.cache
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\TrabajoFinal.dll.config
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\TrabajoFinal.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\TrabajoFinal.pdb
@@ -152,8 +154,6 @@ C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\Tra
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\CapaPresentacion.pdb
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\es\System.Web.Optimization.resources.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
-C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csprojAssemblyReference.cache
-C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csproj.CoreCompileInputs.cache
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.csproj.CopyComplete
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.dll
 C:\Users\andym\Desktop\TrabajoInsituto\Trabajoaiep\Trabajo-Aiep\TrabajoFinal\TrabajoFinal\obj\Debug\TrabajoFinal.pdb
