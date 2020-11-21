@@ -2,6 +2,7 @@
 using CapaNegocio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -22,6 +23,8 @@ namespace TrabajoFinal.Pages
                 CargaCliente();
                 CargaFormaPago();
                 CargaProducto();
+                fecdoc.Value = DateTime.Now.ToString("yyyy-MM-dd");
+                fecvig.Value = DateTime.Today.AddDays(30).ToString("yyyy-MM-dd");
             }
         }
         private void CargaGrilla()
@@ -29,7 +32,7 @@ namespace TrabajoFinal.Pages
             NEGDocumento conCli = new NEGDocumento();
             Documento doc = new Documento();
 
-            gvFacturas.DataSource = conCli.ConsultaDocumento(doc); 
+            gvFacturas.DataSource = conCli.ConsultaDocumento(doc);
             gvFacturas.DataBind();
         }
         private void CargaProducto()
@@ -37,10 +40,14 @@ namespace TrabajoFinal.Pages
             NEGProducto negprod = new NEGProducto();
             Producto prod = new Producto();
 
+            Session["tbProd"] = negprod.ConsultaProducto(prod);
+
+            //int valor = Session["tbProd"];
+
             ddlproducto.Items.Clear();
             ddlproducto.DataTextField = "cNombre";
             ddlproducto.DataValueField = "Id_Producto";
-            ddlproducto.DataSource = negprod.ConsultaProducto(prod);
+            ddlproducto.DataSource = Session["tbProd"];
             ddlproducto.DataBind();
             ddlproducto.Items.Insert(0, "- Seleccione -");
         }
@@ -94,6 +101,8 @@ namespace TrabajoFinal.Pages
             ddlTipoDoc.DataSource = negtipodoc.ConsultaTipoDoc(tipodoc);
             ddlTipoDoc.DataBind();
             ddlTipoDoc.Items.Insert(0, "- Seleccione -");
+
+            ddlTipoDoc.SelectedIndex = 1;
         }
 
         protected void btnguardar_Click(object sender, EventArgs e)
@@ -128,7 +137,27 @@ namespace TrabajoFinal.Pages
             Session["cntUsuario"] = int.Parse(Session["cntUsuario"].ToString()) + 1;
 
 
-            if (doc.registrarDocumento(docval))
+            if (ddlNomEmp.SelectedIndex == 0)
+            {
+                Response.Write("<script>alert('Debe selecionar Empresa');</script>");
+                return;
+            }
+            if (ddlNomCli.SelectedIndex == 0)
+            {
+                Response.Write("<script>alert('Debe selecionar Cliente');</script>");
+                return;
+            }
+            if (ddlFormPago.SelectedIndex == 0)
+            {
+                Response.Write("<script>alert('Debe selecionar Forma de pago');</script>");
+                return;
+            }
+            //if (detalle.Count == 0)
+            //{
+            //    Response.Write("<script>alert('Debe Agregar detalle al documeno');</script>");
+            //    return;
+            //}
+            else if (doc.registrarDocumento(docval))
             {
                 CargaGrilla();
                 Response.Write("<script>alert('Registro Correcto!');</script>");
@@ -136,6 +165,78 @@ namespace TrabajoFinal.Pages
             else
             {
                 Response.Write("<script>alert('Registro Incorrecto!');</script>");
+            }
+        }
+
+        protected void btnagregar_Click(object sender, EventArgs e)
+        {
+
+            if (ddlproducto.SelectedIndex == 0)
+            {
+                Response.Write("<script>alert('Debe selecionar Empresa');</script>");
+                return;
+            }
+            if (int.Parse(txtTotal.Value.Replace(".","")) == 0)
+            {
+                Response.Write("<script>alert('Debe Ingresar cantidad de productos');</script>");
+                return;
+            }
+            else
+            {
+                List<Producto> lista = new List<Producto>();
+
+                Producto agregar = new Producto();
+
+                agregar.Id_Producto = int.Parse(ddlproducto.SelectedIndex.ToString());
+                agregar.cNombre = ddlproducto.SelectedItem.Text.Trim();
+                agregar.iValor = int.Parse(Session["valorprod"].ToString().Replace(".", ""));
+
+                lista.Add(agregar);
+
+                gvdetFact.DataSource = lista;
+                gvdetFact.DataBind();
+
+                txtTotalNeto.Value = (int.Parse(txtTotalNeto.Value.Replace(".", "")) + int.Parse(txtTotal.Value.Replace(".",""))).ToString("N0");
+
+                double iva = double.Parse(ConfigurationManager.AppSettings.Get("IVA").ToString());
+                double neto = double.Parse(txtTotalNeto.Value);
+                double valor = (neto * iva) / 100;
+                double general = (neto - valor);
+
+                txtTotalIva.Value = valor.ToString("N0");
+                txtTotalGeneral.Value = general.ToString("N0");
+            }
+        }
+
+        protected void ddlproducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ddlproducto.SelectedIndex != 0)
+            {
+                NEGProducto negprod = new NEGProducto();
+                Producto prod = new Producto();
+                prod.Id_Producto = ddlproducto.SelectedIndex;
+                List<Producto> prodselect = negprod.BuscarProducto(prod);
+
+                foreach (var i in prodselect)
+                {
+                    txtTotal.Value = int.Parse(i.iValor.ToString()).ToString("N0");
+                    Session["valorprod"] = txtTotal.Value;
+                }
+                txtCant.Text = "1";
+            }
+            else
+            {
+                txtCant.Text = "0";
+                txtTotal.Value = "";
+            }
+        }
+
+        protected void txtCant_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCant.Text != "" || txtCant.Text != "0")
+            {
+                txtTotal.Value = (int.Parse(txtTotal.Value.Replace(".","")) * int.Parse(txtCant.Text)).ToString("N0");
             }
         }
     }

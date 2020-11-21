@@ -103,7 +103,7 @@ namespace CapaPersistencia
                         agregar.Id_Producto = int.Parse(dt.Rows[i][0].ToString());
                         agregar.cNombre = dt.Rows[i][1].ToString();
                         agregar.iStock = int.Parse(dt.Rows[i][2].ToString());
-                        agregar.iValor = int.Parse(dt.Rows[i][3].ToString());
+                        agregar.iValor = int.Parse(dt.Rows[i][3].ToString().Split(',')[0]);
                         agregar.dFechaCreacion = Convert.ToDateTime(dt.Rows[i][4].ToString());
 
                         lista.Add(agregar);
