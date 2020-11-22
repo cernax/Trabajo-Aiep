@@ -6,7 +6,7 @@
         <ol class="breadcrumb">
             <li>
                 <div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Agregar</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Nuevo</button>
                 </div>
             </li>
             <li>
@@ -41,7 +41,7 @@
         <asp:GridView runat="server" ID="gvProducto"
             AutoGenerateColumns="False"
             EmptyDataText="Sin Información" ShowHeader="true"
-            CssClass="table table-hover"
+            CssClass="table table-hover"  ShowHeaderWhenEmpty="true"
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True">            
             <Columns>                

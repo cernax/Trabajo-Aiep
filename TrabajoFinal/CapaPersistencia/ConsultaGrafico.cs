@@ -18,7 +18,7 @@ namespace CapaPersistencia
             try
             {
                 string queryConsulta = "SELECT  " +
-                                        "sum(Id_NCorrelativo)" +                                           
+                                        "count(Id_Documento)" +                                           
                                         "from " +
                                         "TBL_Documento";
 

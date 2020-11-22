@@ -14,6 +14,7 @@ namespace CapaEntidades
         public int Id_Producto { get; set; }
         public int iCantidad { get; set; }
         public decimal iTotalParcial { get; set; }
+        public string nomprod { get; set; }
         public DetDocumento()
         {
             Id_Detalle = 0;
@@ -22,6 +23,7 @@ namespace CapaEntidades
             Id_Producto = 0;
             iCantidad = 0;
             iTotalParcial = 0;
+            nomprod = string.Empty;
         }
     }
 }

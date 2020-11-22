@@ -25,7 +25,7 @@ namespace CapaPersistencia
                                         "iCantidad," +
                                         "iTotalParcial," +
                                         "from " +
-                                        "TBL_DetDocumento";
+                                        "TBL_Detalle_Documento";
 
                 conectaBD.abrirConexion();
 
@@ -83,7 +83,7 @@ namespace CapaPersistencia
                                         "iCantidad," +
                                         "iTotalParcial," +
                                         "from " +
-                                        "TBL_DetDocumento where Id_DetDocumento=" + detDocumento.Id_Detalle;
+                                        "TBL_Detalle_Documento where Id_DetDocumento=" + detDocumento.Id_Detalle;
 
                 conectaBD.abrirConexion();
 
@@ -134,7 +134,7 @@ namespace CapaPersistencia
 
             try
             {
-                string queryElimina = "DELETE TBL_DetDocumento where Id_Detalle=" + detDocumento.Id_Detalle;
+                string queryElimina = "DELETE TBL_Detalle_Documento where Id_Detalle=" + detDocumento.Id_Detalle;
 
                 conectaBD.abrirConexion();
 
@@ -144,12 +144,12 @@ namespace CapaPersistencia
 
                 conectaBD.cerrarConexion();
 
-                if (auxdet > 0)
+                if (auxdet == 0)
                 {
-                    string queryInsert = "INSERT INTO TBL_DetDocumento VALUES ('" +
+                    string queryInsert = "INSERT INTO TBL_Detalle_Documento VALUES (" +
                                             detDocumento.Id_Documento + "," +
                                             detDocumento.Id_NCorrelativo + "," +
-                                            detDocumento.Id_Producto + ",'" +
+                                            detDocumento.Id_Producto + "," +
                                             detDocumento.iCantidad + "," +
                                             detDocumento.iTotalParcial + ");";
 

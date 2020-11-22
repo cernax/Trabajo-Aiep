@@ -13,6 +13,9 @@ namespace TrabajoFinal.Pages
 {
     public partial class Facturacion : System.Web.UI.Page
     {
+
+        NEGDetDetDocumento negdoc = new NEGDetDetDocumento();
+        List<DetDocumento> detdoc = new List<DetDocumento>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,6 +37,10 @@ namespace TrabajoFinal.Pages
 
             gvFacturas.DataSource = conCli.ConsultaDocumento(doc);
             gvFacturas.DataBind();
+
+
+            gvdetFact.DataSource = detdoc;
+            gvdetFact.DataBind();
         }
         private void CargaProducto()
         {
@@ -111,31 +118,11 @@ namespace TrabajoFinal.Pages
             int nomcli = int.Parse(ddlNomCli.SelectedValue);
             int forpago = int.Parse(ddlFormPago.SelectedValue);
             int tipdoc = int.Parse(ddlTipoDoc.SelectedValue);
-            int totalneto = int.Parse(txtTotalNeto.Value);
-            int totalporcentaje = int.Parse(txtTotalPorcentaje.Value);
-            int totaliva = int.Parse(txtTotalIva.Value);
-            int totaldescuento = int.Parse(txtTotalDescuento.Value);
-            int totalgeneral = int.Parse(txtTotalGeneral.Value);
-
-            NEGDocumento doc = new NEGDocumento();
-            Documento docval = new Documento();
-
-            docval.Id_Empresa = int.Parse(ddlNomEmp.SelectedValue);
-            docval.Id_Cliente = int.Parse(ddlNomCli.SelectedValue);
-            docval.Id_FormaPago = int.Parse(ddlFormPago.SelectedValue);
-            docval.Id_TipoDoc = int.Parse(ddlTipoDoc.SelectedValue);
-            docval.iTotalNeto = int.Parse(txtTotalNeto.Value);
-            docval.dTotalPorcentaje = int.Parse(txtTotalPorcentaje.Value);
-            docval.iTotalIva = int.Parse(txtTotalIva.Value);
-            docval.iTotalDescuento = int.Parse(txtTotalDescuento.Value);
-            docval.iTotalGeneral = int.Parse(txtTotalGeneral.Value);
-            string fecdocs = string.Format("{0:yyyy-MM-dd}", fecdoc.Value);
-            string fecvigs = string.Format("{0:yyyy-MM-dd}", fecvig.Value);
-            docval.dFechaDocumento = fecdocs;
-            docval.dFechaVigencia = fecvigs;
-
-            Session["cntUsuario"] = int.Parse(Session["cntUsuario"].ToString()) + 1;
-
+            int totalneto = int.Parse(txtTotalNeto.Value.Replace(".", ""));
+            int totalporcentaje = int.Parse(txtTotalPorcentaje.Value.Replace(".", ""));
+            int totaliva = int.Parse(txtTotalIva.Value.Replace(".", ""));
+            int totaldescuento = int.Parse(txtTotalDescuento.Value.Replace(".", ""));
+            int totalgeneral = int.Parse(txtTotalGeneral.Value.Replace(".", ""));
 
             if (ddlNomEmp.SelectedIndex == 0)
             {
@@ -152,19 +139,69 @@ namespace TrabajoFinal.Pages
                 Response.Write("<script>alert('Debe selecionar Forma de pago');</script>");
                 return;
             }
-            //if (detalle.Count == 0)
-            //{
-            //    Response.Write("<script>alert('Debe Agregar detalle al documeno');</script>");
-            //    return;
-            //}
-            else if (doc.registrarDocumento(docval))
+            else if (gvdetFact.Rows.Count == 0)
             {
-                CargaGrilla();
-                Response.Write("<script>alert('Registro Correcto!');</script>");
+                Response.Write("<script>alert('Debe Agregar detalle al documeno');</script>");
+                return;
             }
             else
             {
-                Response.Write("<script>alert('Registro Incorrecto!');</script>");
+                NEGDocumento doc = new NEGDocumento();
+                Documento docval = new Documento();
+
+                docval.Id_Empresa = int.Parse(ddlNomEmp.SelectedValue);
+                docval.Id_Cliente = int.Parse(ddlNomCli.SelectedValue);
+                docval.Id_FormaPago = int.Parse(ddlFormPago.SelectedValue);
+                docval.Id_TipoDoc = int.Parse(ddlTipoDoc.SelectedValue);
+                docval.iTotalNeto = int.Parse(txtTotalNeto.Value.Replace(".", ""));
+                docval.dTotalPorcentaje = int.Parse(txtTotalPorcentaje.Value.Replace(".", ""));
+                docval.iTotalIva = int.Parse(txtTotalIva.Value.Replace(".", ""));
+                docval.iTotalDescuento = int.Parse(txtTotalDescuento.Value.Replace(".", ""));
+                docval.iTotalGeneral = int.Parse(txtTotalGeneral.Value.Replace(".", ""));
+                string fecdocs = string.Format("{0:yyyy-MM-dd}", fecdoc.Value);
+                string fecvigs = string.Format("{0:yyyy-MM-dd}", fecvig.Value);
+                docval.dFechaDocumento = fecdocs;
+                docval.dFechaVigencia = fecvigs;
+
+                NEGDetDetDocumento negdetdoc = new NEGDetDetDocumento();
+                DetDocumento DetDocumento = new DetDocumento();
+
+
+
+                for (var x = 0; x < gvdetFact.Rows.Count; x++)
+                {
+                    DetDocumento.Id_Producto = int.Parse(gvdetFact.Rows[x].Cells[0].Text);
+                    DetDocumento.iTotalParcial = int.Parse(gvdetFact.Rows[x].Cells[3].Text.Replace(".", "").Replace("$", ""));
+                    DetDocumento.iCantidad = int.Parse(gvdetFact.Rows[x].Cells[2].Text);
+                }
+
+
+                //List<DetDocumento> detdoc = new List<DetDocumento>();
+
+                Session["cntUsuario"] = int.Parse(Session["cntUsuario"].ToString()) + 1;
+                Session["MtoUsuario"] = int.Parse(Session["MtoUsuario"].ToString()) + totalgeneral;
+
+
+                if (doc.registrarDocumento(docval))
+                {
+                    int idDocumento = doc.ConsutaCorrelativo();
+                    DetDocumento.Id_Documento = int.Parse(idDocumento.ToString());
+                    DetDocumento.Id_NCorrelativo = int.Parse(idDocumento.ToString());
+
+                    if (negdetdoc.registrarDetDocumento(DetDocumento))
+                    {
+                        Response.Write("<script>alert('Registro Correcto!');</script>");
+                        Response.Redirect("~/Pages/Facturacion.aspx");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Registro Incorrecto!');</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Registro Incorrecto!');</script>");
+                }
             }
         }
 
@@ -176,35 +213,41 @@ namespace TrabajoFinal.Pages
                 Response.Write("<script>alert('Debe selecionar Empresa');</script>");
                 return;
             }
-            if (int.Parse(txtTotal.Value.Replace(".","")) == 0)
+            if (int.Parse(txtTotal.Value.Replace(".", "")) == 0)
             {
                 Response.Write("<script>alert('Debe Ingresar cantidad de productos');</script>");
                 return;
             }
             else
             {
-                List<Producto> lista = new List<Producto>();
-
-                Producto agregar = new Producto();
+                DetDocumento agregar = new DetDocumento();
 
                 agregar.Id_Producto = int.Parse(ddlproducto.SelectedIndex.ToString());
-                agregar.cNombre = ddlproducto.SelectedItem.Text.Trim();
-                agregar.iValor = int.Parse(Session["valorprod"].ToString().Replace(".", ""));
+                agregar.nomprod = ddlproducto.SelectedItem.Text.Trim();
+                agregar.iTotalParcial = int.Parse(Session["valorprod"].ToString().Replace(".", ""));
+                agregar.iCantidad = int.Parse(txtCant.Text);
 
-                lista.Add(agregar);
+                detdoc.Add(agregar);
 
-                gvdetFact.DataSource = lista;
+                gvdetFact.DataSource = detdoc;
                 gvdetFact.DataBind();
 
-                txtTotalNeto.Value = (int.Parse(txtTotalNeto.Value.Replace(".", "")) + int.Parse(txtTotal.Value.Replace(".",""))).ToString("N0");
+                txtTotalNeto.Value = (int.Parse(txtTotalNeto.Value.Replace(".", "")) + int.Parse(txtTotal.Value.Replace(".", ""))).ToString("N0");
 
                 double iva = double.Parse(ConfigurationManager.AppSettings.Get("IVA").ToString());
                 double neto = double.Parse(txtTotalNeto.Value);
                 double valor = (neto * iva) / 100;
-                double general = (neto - valor);
+                double general = (neto + valor);
 
                 txtTotalIva.Value = valor.ToString("N0");
                 txtTotalGeneral.Value = general.ToString("N0");
+
+                ddlproducto.SelectedIndex = 0;
+                txtTotal.Value = "";
+                txtCant.Text = "0";
+
+
+
             }
         }
 
@@ -236,7 +279,10 @@ namespace TrabajoFinal.Pages
         {
             if (txtCant.Text != "" || txtCant.Text != "0")
             {
-                txtTotal.Value = (int.Parse(txtTotal.Value.Replace(".","")) * int.Parse(txtCant.Text)).ToString("N0");
+                if (txtTotal.Value != "" && txtTotal.Value != "0")
+                {
+                    txtTotal.Value = (int.Parse(txtTotal.Value.Replace(".", "")) * int.Parse(txtCant.Text)).ToString("N0");
+                }
             }
         }
     }

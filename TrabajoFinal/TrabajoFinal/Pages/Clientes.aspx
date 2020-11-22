@@ -48,7 +48,7 @@
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True"
             OnRowEditing="gvCliente_RowEditing"
-            OnPageIndexChanging="gvCliente_PageIndexChanging"
+            OnPageIndexChanging="gvCliente_PageIndexChanging"  ShowHeaderWhenEmpty="true"
             AutoGenerateColumns="false">
             <Columns>
                 <asp:BoundField DataField="iRut" HeaderText="Rut" DataFormatString="{0:N0}" ReadOnly="true" />

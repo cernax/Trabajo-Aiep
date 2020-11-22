@@ -284,32 +284,51 @@ namespace CapaPersistencia
                 conectaBD.cerrarConexion();
             }
         }
+        public int ConsutaCorrelativo()
+        {
+            ConexionBD conectaBD = new ConexionBD();
+            try
+            {
+                string queryConsulta = "SELECT  " +
+                                        "max(isnull(Id_Documento,0))" +
+                                        "from " +
+                                        "TBL_Documento";
 
-        //public CapaEntidades<Documento> VistaDocumento(Documento documento)
-        //{
-        //    ConexionBD conectaBD = new ConexionBD();
+                conectaBD.abrirConexion();
 
-        //    using (SqlConnection cn = new SqlConnection("connection string"))
-        //    {
-        //        cn.Open();
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(queryConsulta, conectaBD.Conexion);
 
-        //        SqlCommand cmd = new SqlCommand("PA_Consulta_factura", cn);
-        //        cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                sqlAdapter.Fill(dt);
 
-        //        cmd.Parameters.AddWithValue("@Id_NCorrelativo", Convert.ToInt32(documento.Id_NCorrelativo));
-        //        cmd.Parameters.AddWithValue("@Id_TipoDoc", Convert.ToInt32(documento.Id_TipoDoc));
-        //        cmd.Parameters.AddWithValue("@Id_Empresa", Convert.ToInt32(documento.Id_Empresa));
-        //        cmd.Parameters.AddWithValue("@Id_Cliente", Convert.ToInt32(documento.Id_Cliente));
+                conectaBD.cerrarConexion();
 
-        //        SqlDataReader dr = cmd.ExecuteReader();
+                if (dt.Rows.Count > 0)
+                {
+                    int iddocument = 0;
 
-        //        if (dr.Read())
-        //        {
-        //            while (reader.Read())
-        //            {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
 
-        //            }
-        //    }
-        //}
+                        iddocument = int.Parse(dt.Rows[i][0].ToString());
+                    }
+
+                    return iddocument;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                conectaBD.cerrarConexion();
+            }
+        }
+
     }
 }

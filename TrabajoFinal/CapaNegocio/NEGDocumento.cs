@@ -67,5 +67,9 @@ namespace CapaNegocio
                 return ConsDoc.eliminarDocumento(Documento);
             }
         }
+        public int ConsutaCorrelativo()
+        {
+            return ConsDoc.ConsutaCorrelativo();
+        }
     }
 }

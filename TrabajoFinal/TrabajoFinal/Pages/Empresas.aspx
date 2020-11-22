@@ -41,7 +41,7 @@
         <asp:GridView runat="server" ID="gvEmpresa"
             AutoGenerateColumns="False"
             EmptyDataText="Sin Información" ShowHeader="true"
-            CssClass="table table-hover"
+            CssClass="table table-hover"  ShowHeaderWhenEmpty="true"
             HeaderStyle-CssClass="thead-dark"
             AllowPaging="True">
             <Columns>

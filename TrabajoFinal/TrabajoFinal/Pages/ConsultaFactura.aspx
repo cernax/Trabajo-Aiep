@@ -45,7 +45,7 @@
             EmptyDataText="Sin Información"
             CssClass="table table-hover"
             HeaderStyle-CssClass="thead-dark"
-            AllowPaging="True"
+            AllowPaging="True"  ShowHeaderWhenEmpty="true"
             AutoGenerateColumns="false">
             <Columns>
                 <asp:BoundField DataField="cNombreDoc" HeaderText="Tipo Documento" DataFormatString="{0:N0}" ReadOnly="true" />

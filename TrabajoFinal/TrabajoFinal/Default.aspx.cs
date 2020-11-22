@@ -55,11 +55,11 @@ namespace TrabajoFinal
                 Session["Cntmaximo"] = 10;
             }
 
-            var Monto = conGra.ConsultaGraficoCnt(grafico);
+            var Monto = conGra.ConsultaGraficoMto(grafico);
 
             if (Monto != null)
             {
-                if (Monto .Count> 0)
+                if (Monto.Count> 0)
                 {
                     Session["MtoBase"] = conGra.ConsultaGraficoMto(grafico).FirstOrDefault().Monto;
 
