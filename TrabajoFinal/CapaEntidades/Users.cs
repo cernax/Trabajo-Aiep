@@ -16,6 +16,11 @@ namespace CapaEntidades
         public string apellido { get; set; }
         public string correo { get; set; }
         public string fecnacimiento { get; set; }
+        public int id_perfil { get; set; }
+        public string nombreperfil { get; set; }
+        public bool sel { get; set; }
+        public int Id_Opciones { get; set; }
+        public string cNombreOpciones { get; set; }
         public Users()
         {
             user = string.Empty;
@@ -26,6 +31,11 @@ namespace CapaEntidades
             apellido = string.Empty;
             correo = string.Empty;
             fecnacimiento = string.Empty;
+            id_perfil = 0;
+            nombreperfil = string.Empty;
+            Id_Opciones = 0;
+            cNombreOpciones = string.Empty;
+            sel = false;
         }
     }
 }

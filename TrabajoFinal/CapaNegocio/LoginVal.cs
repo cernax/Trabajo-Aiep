@@ -33,5 +33,38 @@ namespace CapaNegocio
                 return ConsUsr.registraUsuario(usuario);
             }
         }
+        public List<Users> BuscaUsuario(Users users)
+        {
+            if (users == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ConsUsr.BuscaUsuario(users);
+            }
+        }
+        public List<Users> BuscaPerfil(Users users)
+        {
+            if (users == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ConsUsr.BuscaPerfil(users);
+            }
+        }
+        public List<Users> ListaOpciones(Users users)
+        {
+            if (users == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ConsUsr.ListaOpciones(users);
+            }
+        }
     }
 }

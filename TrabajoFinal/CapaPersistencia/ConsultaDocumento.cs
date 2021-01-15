@@ -168,9 +168,22 @@ namespace CapaPersistencia
 
             try
             {
-                string queryInsert = "INSERT INTO TBL_Documento VALUES ("+
-                                        documento.Id_TipoDoc + "," +
-                                        documento.Id_NCorrelativo + ",'" +
+                string queryInsert = "INSERT INTO TBL_Documento ([Id_TipoDoc]," +
+                                        "[dFechaDocumento]," +
+                                        "[dFechaVigencia]," +
+                                        "[Id_Empresa]," +
+                                        "[Id_Cliente]," +
+                                        "[Id_FormaPago]," +
+                                        "[iTotalNeto]," +
+                                        "[dTotalPorcentaje]," +
+                                        "[iTotalIva]," +
+                                        "[iTotalDescuento]," +
+                                        "[iTotalGeneral]," +
+                                        "[bEmitido]," +
+                                        "[bVigencia])" +
+                                        "VALUES (" +
+                                        "1" + ",'" +
+                                        //documento.Id_TipoDoc + "," +
                                         documento.dFechaDocumento + "','" +
                                         documento.dFechaVigencia + "'," +
                                         documento.Id_Empresa + "," +

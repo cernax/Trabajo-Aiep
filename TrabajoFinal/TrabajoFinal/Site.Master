@@ -51,6 +51,7 @@
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/Empresas.aspx">Empresa</a></li>
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/ConsultaVenta.aspx">Consulta de Ventas</a></li>
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/ConsultaFactura.aspx">Consulta de Factura</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Pages/UsuariosMant.aspx">Usuarios</a></li>
                     <li class="nav-item"><a class="nav-link" runat="server" href="Login.aspx">Salir</a></li>
 
                 </ul>

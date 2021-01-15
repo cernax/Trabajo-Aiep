@@ -7,15 +7,27 @@ using System.Web.UI.WebControls;
 using CapaEntidades;
 using CapaNegocio;
 
-namespace TrabajoFinal
+namespace TrabajoFinal.Pages
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class UsuariosMant : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargaGrilla();
             CargaPerfil(0);
         }
+        private void CargaGrilla()
+        {
+            LoginVal Use = new LoginVal();
+            Users usuarios = new Users();
 
+            gvUsuario.DataSource = Use.BuscaUsuario(usuarios);
+            gvUsuario.DataBind();
+
+            gvOpciones.DataSource = Use.ListaOpciones(usuarios);
+            gvOpciones.DataBind();
+
+        }
         private void CargaPerfil(int user)
         {
             LoginVal Use = new LoginVal();
@@ -56,25 +68,6 @@ namespace TrabajoFinal
                 return suma.ToString();
             }
         }
-        protected void btnlogin_Click(object sender, EventArgs e)
-        {
-            var psw = txtpsw.Text;
-            var user = txtuser.Text;
-            string est;
-
-            Users usr = new Users();
-            usr.password = psw;
-            usr.user = user;
-
-            LoginVal consUser = new LoginVal();
-            est = consUser.ConsultaUsuario(usr);
-
-            if (est != string.Empty)
-                Response.Redirect("https://localhost:44382/Default?NomUser=" + est);
-            else
-                Response.Redirect("https://localhost:44382/Login");
-        }
-
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
             Users usr = new Users();

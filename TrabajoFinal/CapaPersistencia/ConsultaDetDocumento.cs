@@ -146,8 +146,13 @@ namespace CapaPersistencia
 
                 if (auxdet == 0)
                 {
-                    string queryInsert = "INSERT INTO TBL_Detalle_Documento VALUES (" +
-                                            detDocumento.Id_Documento + "," +
+                    string queryInsert = "INSERT INTO TBL_Detalle_Documento (" +
+                                            "[Id_iTem]," +
+                                            "[Id_Producto]," +
+                                            "[iCantidad]," +
+                                            "[iTotalParcial]" +
+                                            ")VALUES (" +
+                                            //detDocumento.Id_Documento + "," +
                                             detDocumento.Id_NCorrelativo + "," +
                                             detDocumento.Id_Producto + "," +
                                             detDocumento.iCantidad + "," +

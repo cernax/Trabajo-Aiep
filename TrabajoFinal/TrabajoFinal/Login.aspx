@@ -14,7 +14,7 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <div class="fadeIn first">
-                <img src="Imagen/Logo.JPG" id="icon" alt="User Icon"/>
+                <img src="Imagen/Logo.JPG" id="icon" alt="User Icon" />
             </div>
             <div>
                 <asp:TextBox ID="txtuser" runat="server" CssClass="fadeIn second"></asp:TextBox>
@@ -66,7 +66,10 @@
                             <asp:Label ID="Label1" runat="server" Text="Fecha de Nacimiento:"></asp:Label><br />
                             <asp:TextBox ID="txtfecnac" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
-
+                        <div class="col-lg-12">
+                            <asp:Label ID="lblperfil" runat="server" Text="Perfil:"></asp:Label><br />
+                            <asp:DropDownList ID="ListaPerfil" CssClass="form-control" runat="server" AutoPostBack="false"></asp:DropDownList>
+                        </div>
                     </form>
                     <div class="modal-footer center">
                         <asp:Button ID="btnGrabar" CssClass="form-control btn-success" OnClick="btnGrabar_Click" runat="server" AutoPostBack="true" Text="Grabar" />

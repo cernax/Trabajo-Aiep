@@ -144,6 +144,8 @@ namespace CapaPersistencia
 
             try
             {
+                var fec = empresa.dFechaCreacion.ToString("yyyy-MM-dd 00:00:00.000");
+
                 string queryInsert = "INSERT INTO TBL_Empresa " +
                                             "(" +
                                             "iRut," +
@@ -164,7 +166,7 @@ namespace CapaPersistencia
                                             empresa.cTelefono + ",'" +
                                             empresa.vCorreo + "'," +
                                             empresa.bVigencia + ",'" +
-                                            Convert.ToDateTime(empresa.dFechaCreacion.ToString("yyyy-MM-dd + 00:00:00.000")) +
+                                            fec +
                                             "');";
 
                 conectaBD.abrirConexion();
